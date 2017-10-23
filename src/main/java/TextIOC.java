@@ -1,4 +1,5 @@
 import AOP.Book;
+import AOP.Books;
 import Annotation.User;
 import Annotation.UserService;
 import org.junit.Test;
@@ -23,9 +24,15 @@ public class TextIOC {
         }
         @Test
     public void test4(){
-            ApplicationContext context = new ClassPathXmlApplicationContext("Spring/bean.xml");
+            ApplicationContext context = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
            Book book = (Book) context.getBean("book");
            book.add();
+        }
+        @Test
+    public void test5(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
+        Books books = (Books) context.getBean("books");
+        books.books();
         }
 
 }

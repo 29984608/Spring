@@ -3,10 +3,31 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd ">
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--开启注解扫描-->
     <context:component-scan base-package="Annotation"></context:component-scan>
+    <!--xml配置方式-->
+    <bean id="book" class="AOP.Book" />
+    <bean id="mybook" class="AOP.MyBook" />
+    <aop:config>
+        <!--1.配置切入点-->
+        <aop:pointcut id="pointcut1" expression="execution(* AOP.Book.*(..))" />
+        <!-- 2.配置切面
+        把增强用到方法上面-->
+        <aop:aspect ref="mybook">
+            <!--配置增强类型
+            method:增强类里面使用哪个方法作为前置
+            -->
+            <aop:before method="before" pointcut-ref="pointcut1" />
+        </aop:aspect>
+    </aop:config>
+    <!--开启注解扫描-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <context:component-scan base-package="AOP"></context:component-scan>
 </beans>
