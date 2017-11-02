@@ -30,13 +30,15 @@
     <!--开启注解扫描-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     <context:component-scan base-package="AOP"></context:component-scan>
+    <!-- 配置数据库相关参数properties的属性：${url} -->
+    <context:property-placeholder location="classpath:jdbc.properties" />
     <!--配置c3p0连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--注入属性-->
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/text"></property>
-        <property name="user" value="root"></property>
-        <property name="password" value="root"></property>
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
     </bean>
     <!--配置userService-->
     <bean id="userService" class="c3p0.UserService">
