@@ -27,7 +27,7 @@
             <aop:before method="before" pointcut-ref="pointcut1" />
         </aop:aspect>
     </aop:config>
-    <!--开启注解扫描-->
+    <!--开启AOP注解扫描-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     <context:component-scan base-package="AOP"></context:component-scan>
 </beans>

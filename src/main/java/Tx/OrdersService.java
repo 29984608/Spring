@@ -1,9 +1,14 @@
 package Tx;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 /**
  * Created by yang on 17-11-2.
  */
+@Component(value = "orderService")
 public class OrdersService {
+    @Autowired
     private OrdersDao ordersDao;
 
     public void setOrdersDao(OrdersDao ordersDao) {
