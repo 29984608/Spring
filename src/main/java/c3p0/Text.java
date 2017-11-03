@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Text {
     @Test
     public void test(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("Spring/c3p0.xml");
         UserService userService = (UserService) context.getBean("userService");
         userService.add1();
     }

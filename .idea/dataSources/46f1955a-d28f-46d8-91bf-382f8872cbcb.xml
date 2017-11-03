@@ -25,7 +25,11 @@
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="11" parent="7" name="PRIMARY">
+    <column id="11" parent="7" name="salary">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="12" parent="7" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
